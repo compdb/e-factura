@@ -1,0 +1,26 @@
+{
+    "name": "compdb/e-factura",
+    "description": "Generate EFactura xml, send it, download status and response messages",
+    "keywords": [
+        "efactura"
+    ],
+    "homepage": "https://github.com/compdb/e-factura",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Stanciu",
+            "email": "git@1982.ro",
+            "homepage": "https://www.1982.ro/com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1||^8.0",
+        "compdb/ubl-invoice": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Compdb\\eFactura\\": ["src"]
+        }
+    }
+}

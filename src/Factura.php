@@ -17,7 +17,7 @@ class Factura {
         $furnizor = new StdClass();
         $furnizor->LegalEntity = (new UBL\LegalEntity())
             ->setRegistrationName($data->getFurnizor()->denumire)
-            ->setCompanyID($data->getFurnizor()->cifNumeric ?: $data->getFurnizor()->cif)
+            ->setCompanyID($data->getFurnizor()->cif)
             ->setCompanyLegalForm($data->getFurnizor()->informatiiSuplimentare);
 
         $furnizor->address = (new UBL\Address())
@@ -56,7 +56,7 @@ class Factura {
 
         $client->LegalEntity = (new UBL\LegalEntity())
             ->setRegistrationName($data->getClient()->denumire)
-            ->setCompanyID($data->getClient()->cifNumeric ?: $data->getClient()->cif);
+            ->setCompanyID($data->getClient()->cif);
     
         $client->address = (new UBL\Address())
             ->setStreetName($data->getClient()->adresa1)

@@ -5,7 +5,6 @@ abstract class Furnizor
 {
     public string $denumire;
     public string $cif;
-    public int $cifNumeric;
     public string $nrRecom;
     public string $codTara;
     public string $judet;

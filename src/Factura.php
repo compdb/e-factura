@@ -91,7 +91,7 @@ class Factura {
 
             if (trim($l->codNomenclator)) {
                 $item->addCommodityClassification((new UBL\CommodityClassification())
-                    ->setItemClassificationCode($l->codNomenclator, ['listID' => 'HS'])
+                    ->setItemClassificationCode($l->codNomenclator, ['listID' => $l->idNomenclator])
                 );
             }
 

@@ -9,6 +9,7 @@ abstract class Linie
     public ?string $codArticol;
     public string $descriereArticol;
     public ?string $codNomenclator;
+    public ?string $idNomenclator;
     public ?string $codArticolClient;
     public float $pret;
     public float $valoare;

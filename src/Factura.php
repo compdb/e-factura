@@ -60,7 +60,6 @@ class Factura {
     
         $client->address = (new UBL\Address())
             ->setStreetName($data->getClient()->adresa1)
-            ->setCityName($data->getClient()->adresa2)
             ->addAddressLine($data->getClient()->adresa1)
             ->addAddressLine($data->getClient()->adresa2)
             ->setCountry((new UBL\Country())->setIdentificationCode($data->getClient()->codTara));
@@ -71,6 +70,13 @@ class Factura {
 
         if ($data->getClient()->judet) {
             $client->address->setCountrySubentity($data->getClient()->judet);
+        }
+
+        if ($data->getClient()->numeLocalitate) {
+            $client->address->setCityName($data->getClient()->numeLocalitate);
+        }
+        else {
+            $client->address->setCityName($data->getClient()->adresa2);
         }
 
         $client->Party = (new UBL\Party())
@@ -141,7 +147,7 @@ class Factura {
 
         $factura = (new UBL\Invoice())
             ->setUBLVersionID('2.1')
-            ->setCustomizationID('urn:cen.eu:en16931:2017#compliant#urn:efactura.mfinante.ro:CIUS-RO:1.0.0')
+            ->setCustomizationID('urn:cen.eu:en16931:2017#compliant#urn:efactura.mfinante.ro:CIUS-RO:1.0.1')
             ->setInvoiceTypeCode($data->getSumar()->tipFactura)
             ->setId($data->getSumar()->numarFactura)
             ->setIssueDate($data->getSumar()->dataFactura)
